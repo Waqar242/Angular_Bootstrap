@@ -25,3 +25,45 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Composition of Project
+# Reuseable Components
+Dashboard Card: It contains the following elements in the card on the home screen. 
+Total orders, Total expences, Total Revenue, New Users etc.
+
+Recent Blogs Card: It contains the following elements in the card on the home screen. 
+Recent Bloga
+
+Blogs Card: It contains the following elements in the card on the blogs screen. 
+Blogs
+
+User Card: It contains the following elements in the card on the users screen. 
+Users
+
+# Main Components
+Home Component: it is composed up of dashboard cards and recent blogs cards. It renders the home screen.
+
+Blogs Component: it is composed up of Blogs cards. It renders the Blogs screen.
+
+Users Component: it is composed up of Users cards. It renders the users screen.
+
+# Layout
+
+Fxflex Layout is used to make the application responsive.
+## Angular Material UI components 
+Following Angular Material UI components are used to efficiently populate the data on screen for users.
+    MatIconModule,
+    MatDividerModule,
+    MatButtonToggleModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatListModule,
+
+## Bootstrap UI Components
+
+Following Bootstrap UI components are used to efficiently populate the data on screen for users.
+    Bootstrap Table
+    Bootstrap Pagination
+    Bootstrap Gridlist
+    
+
