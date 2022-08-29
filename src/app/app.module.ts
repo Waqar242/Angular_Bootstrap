@@ -21,6 +21,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { UserCardsComponent } from './components/user-cards/user-cards.component';
 import {DataTablesModule} from 'angular-datatables';
 import {MatListModule} from '@angular/material/list';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import {MatListModule} from '@angular/material/list';
     MatFormFieldModule,
     MatSelectModule,
     DataTablesModule,
-    MatListModule
+    MatListModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

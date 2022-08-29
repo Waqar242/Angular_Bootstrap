@@ -34,9 +34,25 @@
     </div>
 </div>
 <div *ngIf="!check">
-
+    <div fxLayout="row" fxLayoutAlign="start center" class="droplable margin-15">
+        <div>
+            <p>Show</p>
+        </div>
+        <div>
+            <mat-form-field appearance="outline" class="dropdown">
+                <mat-select (selectionChange)="setPagination($event.value)">
+                  <mat-option *ngFor="let item of usersList;  let i = index" [value]="i">
+                    {{i+1}}
+                  </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div>
+            <p>Entries</p>
+        </div>
+    </div>
     <div class="container">
-        <table id="table1" class="table table-striped table-bordered table-sm row-border hover">
+        <table id="table1" class="table table-striped table-bordered table-sm row-border hover bgWhite">
           <thead>
             <tr>
                 <th scope="col"></th>
@@ -46,7 +62,7 @@
             </tr>
           </thead>
           <tbody>
-           <tr *ngFor="let data of usersList">
+           <tr *ngFor="let data of dataSource.data">
             <td>
                 <img class="circleContainer2" alt="My image name" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQR6mNeolQnmtuuUJ3SwppHCm0CfRXTBECfOw&usqp=CAU">
               </td>
@@ -58,5 +74,8 @@
              </tr>
           </tbody>
         </table>
+        <div fxLayoutAlign="end center">
+            <ngb-pagination [collectionSize]="length" [pageSize]="pageSize" [maxSize]="10"  [(page)]="page" [rotate]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
     </div>
 </div>

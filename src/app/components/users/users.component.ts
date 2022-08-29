@@ -20,8 +20,12 @@ export class UsersComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
   dataSource: any;
   length = 0;
-  pageSize = 10;
+  pageSize = 5;
   pageIndex = 0;
+  itemsPerPage!: number;
+  totalItems: any =50;
+  page: any=1;
+  previousPage: any;
   pageSizeOptions = [5, 10];
   showFirstLastButtons = false;
 
@@ -30,10 +34,7 @@ export class UsersComponent implements OnInit {
     this.getData().subscribe(next=>{
       this.usersList = next;
       this.length = this.usersList.length;
-      this.dataSource = new MatTableDataSource(this.usersList);
-      debugger
-   
-      console.log(this.usersList)
+      this.loadData();
     })
   }
   ngAfterViewInit() {
@@ -41,17 +42,10 @@ export class UsersComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
 }
 
-  // FUnction for pagination
+  // Function for pagination
   setPagination(value: number){
-    var updatedUserList: any = []; // to store updated list after pagination
-    value = value + 1;
-    updatedUserList.splice(0);
-    for(let i=0; i<value; i++)
-    {
-      updatedUserList.push(this.usersList[i]);
-    }
-    this.dataSource = new MatTableDataSource(updatedUserList);
-    console.log("Selected size: " + value);
+    this.pageSize = value + 1;
+    this.loadData();
   }
 
   // Function to retrieve data
@@ -84,35 +78,6 @@ export class UsersComponent implements OnInit {
     this.dataSource = new MatTableDataSource(this.usersList.slice(skip,skip+this.pageSize));
     return event;
   }
-
-  myFunction() {
-    // Declare variables
-    debugger
-    var input: any;
-    var filter;
-    var table: any;
-    var tr;
-    var td;
-    var i;
-    var txtValue;
-    input = document.getElementById("myInput");
-    filter = input.value.toUpperCase();
-    table = document.getElementById("myTable");
-    tr = table.getElementsByTagName("tr");
-  
-    // Loop through all table rows, and hide those who don't match the search query
-    for (i = 0; i < tr.length; i++) {
-      td = tr[i].getElementsByTagName("td")[0];
-      if (td) {
-        txtValue = td.textContent || td.innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-          tr[i].style.display = "";
-        } else {
-          tr[i].style.display = "none";
-        }
-      }
-    }
-  }
   visible: boolean = false;
   @HostListener('window:resize', ['$event'])
   onResize(event:any) {
@@ -122,6 +87,17 @@ export class UsersComponent implements OnInit {
     }else{
       this.visible = false;
     } 
+  }
+  loadPage(page: number) {
+    debugger
+    if (page !== (this.pageIndex-1)) {
+      this.pageIndex = page-1;
+      this.loadData();
+    }
+  }
+  loadData() {
+    const skip= this.pageIndex*this.pageSize;
+    this.dataSource = new MatTableDataSource(this.usersList.slice(skip,skip+this.pageSize));
   }
 }
 
