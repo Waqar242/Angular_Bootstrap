@@ -14,6 +14,7 @@ export class UserCardsComponent implements OnInit {
   ngOnInit(): void {
   }
   visible: boolean = false;
+  smallImage: boolean = false;
   @HostListener('window:resize', ['$event'])
   onResize(event:any) {
     if(event.target.innerWidth >= 536 || event.target.innerWidth <= 1440){
@@ -22,6 +23,12 @@ export class UserCardsComponent implements OnInit {
     }else{
       this.visible = false;
     } 
+    if(event.target.innerWidth <= 454)
+    {
+      this.smallImage = true;
+    }
+    else {
+      this.smallImage = false;
+    }
   }
-
 }

@@ -24,3 +24,8 @@ p {
     margin-top: 7px;
     margin-right: 5px;
 }
+.small {
+    width: 32%;
+    margin-left: 34%;
+    margin-top: 10px;
+}
