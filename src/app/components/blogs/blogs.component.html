@@ -1,0 +1,17 @@
+<! -- Header of Blogger component -->
+<div class="header">
+    <div fxLayout="row" class="box1">
+        <mat-icon class="icon">dashboard</mat-icon> 
+        <h2 class="title">Blogs</h2>
+    </div>
+    <div class="headerDescription">
+        <div class="subtitle">
+            <p>Total users : 10</p>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div  *ngFor="let item of list" [class]="visible ? 'col-md-6 padding-0 width-250' : 'col-md-6 padding-0'">
+        <app-blogs-cards [card]="item"></app-blogs-cards>
+    </div>
+</div>

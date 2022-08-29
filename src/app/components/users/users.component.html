@@ -1,0 +1,62 @@
+<! -- Users component -->
+<div class="header">
+    <div fxLayout="row"  fxLayoutAlign="space-between center" class="box1">
+        <div div fxLayout="row" fxLayoutAlign="start center">
+            <mat-icon class="icon">dashboard</mat-icon> 
+            <h2 class="title">Users</h2>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="center center" class="toggleDiv">
+            <mat-button-toggle-group class="toggle" name="fontStyle" aria-label="Font Style" value="grid">
+                <mat-button-toggle (change)="onValChange($event.value)" value="list">
+                    <span class="material-icons">
+                        list
+                    </span>
+                </mat-button-toggle>
+                <mat-button-toggle (change)="onValChange($event.value)" value="grid">
+                    <span class="material-icons">
+                        view_module
+                    </span>
+                </mat-button-toggle>
+            </mat-button-toggle-group>
+        </div>
+    </div>
+    <div class="headerDescription">
+        <div class="subtitle">
+            <p>Total users: 10</p>
+        </div>
+    </div> 
+</div>
+<div *ngIf="check">
+    <div class="row">
+        <div *ngFor="let item of usersList" [class]="visible ? 'col-md-2 padding-0 width-250' : 'col-md-2 padding-0'">
+            <app-user-cards [card]="item"></app-user-cards>
+        </div>
+    </div>
+</div>
+<div *ngIf="!check">
+
+    <div class="container">
+        <table id="table1" class="table table-striped table-bordered table-sm row-border hover">
+          <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">Name</th>
+                <th scope="col">User Name</th>
+                <th scope="col">Date</th>
+            </tr>
+          </thead>
+          <tbody>
+           <tr *ngFor="let data of usersList">
+            <td>
+                <img class="circleContainer2" alt="My image name" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQR6mNeolQnmtuuUJ3SwppHCm0CfRXTBECfOw&usqp=CAU">
+              </td>
+              <td>
+                <h6>{{ data.name }}</h6>
+              </td>
+              <td>{{ data.username }}</td>
+              <td>Date</td>
+             </tr>
+          </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+<mat-divider class="dvrColor"></mat-divider>
+<div class="sidebar">
+    <div *ngIf="visible" fxLayout="row" fxLayoutAlign="start center">
+        <mat-divider class="dvr" vertical></mat-divider>
+        <h2 matSubheader class="mt-2">MENU</h2>
+    </div>
+    <mat-divider class="dvrColor"></mat-divider>
+    <a class="vertical-align" routerLinkActive="list-item-active" routerLink="/home" routerLinkActive="active-list-item">
+        <mat-icon class="icon">home</mat-icon>Home
+    </a>
+    <a class="vertical-align" routerLinkActive="list-item-active" routerLink="/users" routerLinkActive="active-list-item">
+        <mat-icon class="icon">supervised_user_circle</mat-icon>Users
+    </a>
+    <a class="vertical-align" routerLinkActive="list-item-active" routerLink="/blogs" routerLinkActive="active-list-item">
+        <mat-icon class="icon">picture_in_picture</mat-icon>Blogs
+    </a>
+</div>
+<div class="content">
+    <router-outlet></router-outlet>
+</div>

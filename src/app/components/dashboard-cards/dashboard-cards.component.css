@@ -1,0 +1,24 @@
+.img {
+    max-width: 40%;
+    max-height: 98%;
+    margin: 10px;
+    border-radius: 5px;
+}
+.border-radius-10 {
+    border-radius: 10px;
+}
+.icon {
+    margin-left: 70%;
+    margin-top: 10%;
+    font-size: 40px;
+    height: 40px;
+    width: 40px;
+    color: cornflowerblue;
+}
+h5 {
+    Color: #668094;
+    font-size: unset;
+}
+h1 {
+    font-size: xx-large;
+}

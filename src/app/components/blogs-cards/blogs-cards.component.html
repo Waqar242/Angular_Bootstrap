@@ -1,0 +1,49 @@
+<div class="card mb-5 shadow-sm border-radius-10 height-150">
+    <div fxLayout="row">
+        <div fxFlex="40">
+            <img src="assets/img/blogsapis.jpg" class="img-fluid img"/>
+        </div>
+        <div fxFlex="60" class="height-300">
+            <div class="card-body">
+                <div class="card-title">
+                  <h2>{{card.title.slice(0, 15)}}</h2>
+                </div>
+                <div class="card-text">
+                  <p>
+                      {{
+                        seeMore
+                        ? card.body
+                        : card.body.slice(0, 50)
+                      }}
+                      <span *ngIf="card.body.length > 50"
+                        (click)="seeMore = !seeMore">
+                        {{ !seeMore ? "See More" : "See Less" }}
+                      </span>
+                    </p>
+                </div>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="start space-around">
+                <div fxLayout="row" fxLayoutAlign="space-around center">
+                    <div>
+                        <span class="material-icons icon">
+                            query_builder
+                        </span>
+                    </div>
+                    <div>
+                        21 Aug 2022
+                    </div>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="space-around center">
+                    <div>
+                        <span class="material-icons icon">
+                            person_outline
+                        </span>
+                    </div>
+                    <div>
+                        Alex Paul
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

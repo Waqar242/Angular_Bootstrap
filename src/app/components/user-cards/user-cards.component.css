@@ -1,0 +1,26 @@
+.img {
+    width: 55%;
+    margin-left: 20%;
+    margin-top: 10px;
+}
+.border-radius-10 {
+    border-radius: 10px;
+}
+.height-250 {
+    height: 250px;
+}
+h5 {
+    text-align: center;
+    color: cornflowerblue;
+    font-size: 0.9rem;
+}
+p {
+    color: #668094;
+    font-size: 0.8rem;
+    text-align: center;
+}
+.icon {
+    margin-left: 15px;
+    margin-top: 7px;
+    margin-right: 5px;
+}

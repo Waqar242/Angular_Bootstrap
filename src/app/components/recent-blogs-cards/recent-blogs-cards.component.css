@@ -1,0 +1,9 @@
+.img {
+    max-width: 40%;
+    max-height: 98%;
+    margin: 10px;
+    border-radius: 5px;
+}
+.border-radius-10 {
+    border-radius: 10px;
+}
