@@ -7,8 +7,8 @@ import { Component, HostListener, OnInit } from '@angular/core';
 })
 export class SideNavComponent implements OnInit {
 
+  // Media Queries
   visible: boolean = true;
-
   @HostListener('window:resize', ['$event'])
   onResize(event:any) {
     if(event.target.innerWidth < 700){

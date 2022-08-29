@@ -6,6 +6,8 @@ import { Component, HostListener, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+
+  // Cards list to populate cards on dashboard
   cardsList: any[] = [ 
     {
       title:'345',
@@ -29,6 +31,7 @@ export class HomeComponent implements OnInit {
     }
     ]
 
+    // Blog List to populate recent Blogs
     blogsList: any[] = [ 
       {
         title:'Lorem ipsum dolor sit amet',
@@ -56,6 +59,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  // Media Queries
   maxVisible: boolean = false;
   minVisible: boolean = false;
   @HostListener('window:resize', ['$event'])

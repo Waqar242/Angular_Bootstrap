@@ -1,7 +1,7 @@
 import {Component, ViewChild, OnInit, HostListener} from '@angular/core';
-import {MatPaginator, PageEvent} from '@angular/material/paginator';
+import {MatPaginator} from '@angular/material/paginator';
 import { HttpClient } from '@angular/common/http';
-import { Observable, Subject} from 'rxjs';
+import { Observable} from 'rxjs';
 import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
@@ -13,9 +13,6 @@ export class UsersComponent implements OnInit {
   usersList: any;  // to store users
   check: boolean = true;  // for toggle between list and grid view
   displayedColumns: string[] = ['id', 'name', 'username', 'date']; //columns for users table
-
-  dtOptions: DataTables.Settings = {};
-  dtTrigger: Subject<any> = new Subject<any>();
 
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
   dataSource: any;
@@ -29,6 +26,7 @@ export class UsersComponent implements OnInit {
   pageSizeOptions = [5, 10];
   showFirstLastButtons = false;
 
+  // Using http clients for API binding
   constructor(private http: HttpClient) { }
   ngOnInit(): void {
     this.getData().subscribe(next=>{
@@ -70,14 +68,8 @@ export class UsersComponent implements OnInit {
       this.check = !this.check;
     }
   }
-  handlePageEvent(event: PageEvent) {
-    this.length = event.length;
-    this.pageSize = event.pageSize;
-    this.pageIndex = event.pageIndex;
-    const skip= this.pageIndex*this.pageSize;
-    this.dataSource = new MatTableDataSource(this.usersList.slice(skip,skip+this.pageSize));
-    return event;
-  }
+
+  // Media Queries 
   visible: boolean = false;
   @HostListener('window:resize', ['$event'])
   onResize(event:any) {
@@ -88,8 +80,9 @@ export class UsersComponent implements OnInit {
       this.visible = false;
     } 
   }
+
+  // Pagination Functions
   loadPage(page: number) {
-    debugger
     if (page !== (this.pageIndex-1)) {
       this.pageIndex = page-1;
       this.loadData();

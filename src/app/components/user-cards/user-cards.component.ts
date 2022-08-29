@@ -13,6 +13,8 @@ export class UserCardsComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  // Media Queries 
   visible: boolean = false;
   smallImage: boolean = false;
   @HostListener('window:resize', ['$event'])
